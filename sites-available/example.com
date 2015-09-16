@@ -35,5 +35,5 @@ server {
   error_page 404 /404.html;
 
   # Include the basic h5bp config set
-  # include h5bp/basic.conf;
+  include h5bp/basic.conf;
 }
