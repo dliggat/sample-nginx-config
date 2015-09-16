@@ -8,10 +8,10 @@ server {
   listen 80;
 
   # listen on the www host
-  server_name www.example.com;
+  # server_name www.example.com;
 
   # and redirect to the non-www host (declared below)
-  return 301 $scheme://example.com$request_uri;
+  # return 301 $scheme://example.com$request_uri;
 }
 
 server {
@@ -23,7 +23,7 @@ server {
   listen 80;
 
   # The host name to respond to
-  server_name example.com;
+  # server_name example.com;
 
   # Path for static files
   root /sites/example.com/public;
