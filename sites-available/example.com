@@ -23,7 +23,7 @@ server {
   listen 80;
 
   # The host name to respond to
-  server_name 52.26.116.4;
+  # server_name 52.26.116.4;
 
   # Path for static files
   root /sites/example.com/public;
