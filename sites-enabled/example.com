@@ -1,1 +1,1 @@
-sites-available/example.com
+../sites-available/example.com
