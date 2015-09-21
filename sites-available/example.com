@@ -14,41 +14,26 @@
 #   # return 301 $scheme://example.com$request_uri;
 # }
 
-http {
-    upstream static_app {
-        server ec2-54-184-25-49.us-west-2.compute.amazonaws.com;
-        server ec2-52-12-11-222.us-west-2.compute.amazonaws.com;
-    }
+server {
+  # listen [::]:80 accept_filter=httpready; # for FreeBSD
+  # listen 80 accept_filter=httpready; # for FreeBSD
+  # listen [::]:80 deferred; # for Linux
+  # listen 80 deferred; # for Linux
+  listen [::]:80;
+  listen 80;
 
-    server {
-        listen 80;
+  # The host name to respond to
+  # server_name 52.26.116.4;
 
-        location / {
-            proxy_pass http://static_app;
-        }
-    }
+  # Path for static files
+  root /sites/example.com/public;
+
+  #Specify a charset
+  charset utf-8;
+
+  # Custom 404 page
+  error_page 404 /404.html;
+
+  # Include the basic h5bp config set
+  include h5bp/basic.conf;
 }
-
-# server {
-#   # listen [::]:80 accept_filter=httpready; # for FreeBSD
-#   # listen 80 accept_filter=httpready; # for FreeBSD
-#   # listen [::]:80 deferred; # for Linux
-#   # listen 80 deferred; # for Linux
-#   listen [::]:80;
-#   listen 80;
-
-#   # The host name to respond to
-#   # server_name 52.26.116.4;
-
-#   # Path for static files
-#   root /sites/example.com/public;
-
-#   #Specify a charset
-#   charset utf-8;
-
-#   # Custom 404 page
-#   error_page 404 /404.html;
-
-#   # Include the basic h5bp config set
-#   include h5bp/basic.conf;
-# }
